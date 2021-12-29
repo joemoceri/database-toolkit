@@ -13,7 +13,7 @@ namespace DatabaseToolkit
     internal class SQLServerToolkit : ISQLServerToolkit
     {
         private readonly IOptions<ApplicationOptions> options;
-        private string connectionString { get { return options?.Value.GetConnectionString; } }
+        private string connectionString { get { return options?.Value.GetSqlServerConnectionString; } }
 
         public SQLServerToolkit(IOptions<ApplicationOptions> options)
         {

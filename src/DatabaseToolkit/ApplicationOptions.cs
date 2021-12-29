@@ -6,15 +6,27 @@
         public string Version { get; set; }
         public IDictionary<string, string> ConnectionStrings { get; set; }
 
-        public string GetConnectionString
+        public string GetSqlServerConnectionString
         {
             get
             {
-                return Environment.GetEnvironmentVariable("Database") ?? ConnectionStrings["Database"];
+                return Environment.GetEnvironmentVariable("SqlServerDatabase") ?? ConnectionStrings["SqlServerDatabase"];
+            }
+        }
+
+        public string GetMySqlConnectionString
+        {
+            get
+            {
+                return Environment.GetEnvironmentVariable("MySqlDatabase") ?? ConnectionStrings["MySqlDatabase"];
             }
         }
 
         public string SqlServerBasePath { get; set; }
+
+        public string MySqlDumpPath { get; set; }
+
+        public string MySqlDefaultsFilePath { get; set; }
 
     }
 }

@@ -17,15 +17,25 @@ namespace DatabaseToolkit
 
         public void Run()
         {
-            var databaseName = "YourDatabaseName";
-            var localDatabasePath = "C:\\backups\\YourDatabaseBackup.bak";
+            // sql server
+            //var databaseName = "";
+            //var localDatabasePath = "C:\\backups\\YourDatabaseBackup.bak";
 
+            // mysql
+            var databaseName = "sakila";
+            var localDatabasePath = "C:\\backups\\sakila.sql";
+
+            // sql server
             // there are two ways you can call this. If you don't specify localDatabasePath, it will generate it for you using the appsettings.json SQLServerBasePath value.
             //sqlServerToolkit.RestoreDatabase(databaseName);
             //sqlServerToolkit.RestoreDatabase(databaseName, localDatabasePath);
 
             //sqlServerToolkit.BackupDatabase(databaseName);
             //sqlServerToolkit.BackupDatabase(databaseName, localDatabasePath);
+
+            // mysql
+            //mySqlToolkit.BackupDatabase(databaseName, localDatabasePath);
+            //mySqlToolkit.RestoreDatabase(databaseName, localDatabasePath);
         }
     }
 }
