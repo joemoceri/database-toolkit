@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="mongodb-backup.bat" />
+    <None Remove="mongodb-restore.bat" />
     <None Remove="mysql-restore.bat" />
     <None Remove="postgresql-backup.bat" />
     <None Remove="postgresql-restore.bat" />
@@ -18,6 +20,12 @@
 
   <ItemGroup>
     <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mongodb-restore.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mongodb-backup.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="postgresql-backup.bat">

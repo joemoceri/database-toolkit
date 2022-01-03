@@ -8,13 +8,15 @@ namespace DatabaseToolkit
         private readonly ISQLServerToolkit sqlServerToolkit;
         private readonly IMySQLToolkit mySqlToolkit;
         private readonly IPostgreSQLToolkit postgreSqlToolkit;
+        private readonly IMongoDBToolkit mongoDBToolkit;
 
-        public App(IOptions<ApplicationOptions> options, ISQLServerToolkit sqlServerToolkit, IMySQLToolkit mySqlToolkit, IPostgreSQLToolkit postgreSqlToolkit)
+        public App(IOptions<ApplicationOptions> options, ISQLServerToolkit sqlServerToolkit, IMySQLToolkit mySqlToolkit, IPostgreSQLToolkit postgreSqlToolkit, IMongoDBToolkit mongoDBToolkit)
         {
             this.options = options;
             this.sqlServerToolkit = sqlServerToolkit;
             this.mySqlToolkit = mySqlToolkit;
             this.postgreSqlToolkit = postgreSqlToolkit;
+            this.mongoDBToolkit = mongoDBToolkit;
         }
 
         public void Run()
@@ -39,12 +41,19 @@ namespace DatabaseToolkit
             //mySqlToolkit.RestoreDatabase(databaseName, localDatabasePath);
 
             // postgresql
-            var databaseName = "example-database";
-            var localDatabasePath = "C:\\backups\\example-database.sql";
+            //var databaseName = "example-database";
+            //var localDatabasePath = "C:\\backups\\example-database.sql";
 
             // postgresql
             //postgreSqlToolkit.BackupDatabase(databaseName, localDatabasePath);
             //postgreSqlToolkit.RestoreDatabase(databaseName, localDatabasePath);
+
+            // mongodb
+            //var databaseName = "test-database";
+            //var localDatabasePath = "C:\\backups\\backup.gz";
+
+            //mongoDBToolkit.BackupDatabase(databaseName, localDatabasePath);
+            //mongoDBToolkit.RestoreDatabase(localDatabasePath);
         }
     }
 }
