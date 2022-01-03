@@ -1,0 +1,1 @@
+pg_restore -h %1 -p %2 -U %3 -c -d %4 %5

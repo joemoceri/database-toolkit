@@ -28,5 +28,11 @@
 
         public string MySqlDefaultsFilePath { get; set; }
 
+        public string PostgreSQLHost { get; set; }
+
+        public string PostgreSQLPort { get; set; }
+
+        public string PostgreSQLUser { get; set; }
+
     }
 }

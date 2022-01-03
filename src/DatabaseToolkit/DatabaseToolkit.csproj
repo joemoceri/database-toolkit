@@ -12,10 +12,18 @@
   <ItemGroup>
     <None Remove="appsettings.json" />
     <None Remove="mysql-restore.bat" />
+    <None Remove="postgresql-backup.bat" />
+    <None Remove="postgresql-restore.bat" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="postgresql-backup.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="postgresql-restore.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="mysql-restore.bat">
