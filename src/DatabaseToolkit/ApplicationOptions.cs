@@ -14,14 +14,6 @@
             }
         }
 
-        public string GetMySqlConnectionString
-        {
-            get
-            {
-                return Environment.GetEnvironmentVariable("MySqlDatabase") ?? ConnectionStrings["MySqlDatabase"];
-            }
-        }
-
         public string SqlServerBasePath { get; set; }
 
         public string MySqlDumpPath { get; set; }
