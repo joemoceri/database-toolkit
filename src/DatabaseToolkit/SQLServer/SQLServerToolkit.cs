@@ -20,6 +20,12 @@ namespace DatabaseToolkit
             this.options = options;
         }
 
+        /// <summary>
+        /// Restore a SQL Server database. 
+        /// </summary>
+        /// <param name="databaseName"></param>
+        /// <param name="localDatabasePath"></param>
+        /// <exception cref="ArgumentException"></exception>
         public void RestoreDatabase(string databaseName, string localDatabasePath = null)
         {
             // use the default sql server base path from appsettings.json if localDatabasePath is null

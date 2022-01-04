@@ -1,0 +1,1 @@
+mongodump -d %1 --gzip --archive=%2 --username %3 --authenticationDatabase %4

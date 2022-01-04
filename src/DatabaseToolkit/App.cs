@@ -52,8 +52,12 @@ namespace DatabaseToolkit
             //var databaseName = "test-database";
             //var localDatabasePath = "C:\\backups\\backup.gz";
 
+            // mongodb
             //mongoDBToolkit.BackupDatabase(databaseName, localDatabasePath);
             //mongoDBToolkit.RestoreDatabase(localDatabasePath);
+
+            //mongoDBToolkit.BackupDatabaseWithAuthentication(databaseName, localDatabasePath);
+            //mongoDBToolkit.RestoreDatabaseWithAuthentication(localDatabasePath);
         }
     }
 }

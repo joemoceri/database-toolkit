@@ -26,5 +26,11 @@
 
         public string PostgreSQLUser { get; set; }
 
+        public string MongoDBUser { get; set; }
+
+        public string MongoDBPassword { get; set; }
+
+        public string MongoDBAuthenticationDatabase { get; set; }
+
     }
 }
