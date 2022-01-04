@@ -13,7 +13,10 @@
     <None Remove="appsettings.json" />
     <None Remove="mongodb-backup.bat" />
     <None Remove="mongodb-restore.bat" />
+    <None Remove="MongoDB\mongodb-backup-with-auth.bat" />
+    <None Remove="MongoDB\mongodb-restore-with-auth.bat" />
     <None Remove="mysql-restore.bat" />
+    <None Remove="MySQL\mysql-backup.bat" />
     <None Remove="postgresql-backup.bat" />
     <None Remove="postgresql-restore.bat" />
   </ItemGroup>
@@ -22,19 +25,28 @@
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="mongodb-restore.bat">
+    <Content Include="MongoDB\mongodb-backup-with-auth.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="mongodb-backup.bat">
+    <Content Include="MongoDB\mongodb-restore-with-auth.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="postgresql-backup.bat">
+    <Content Include="MongoDB\mongodb-restore.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="postgresql-restore.bat">
+    <Content Include="MongoDB\mongodb-backup.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="mysql-restore.bat">
+    <Content Include="MySQL\mysql-backup.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PostgreSQL\postgresql-backup.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PostgreSQL\postgresql-restore.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MySQL\mysql-restore.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
