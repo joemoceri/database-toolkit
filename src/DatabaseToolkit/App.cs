@@ -56,6 +56,7 @@ namespace DatabaseToolkit
             //mongoDBToolkit.BackupDatabase(databaseName, localDatabasePath);
             //mongoDBToolkit.RestoreDatabase(localDatabasePath);
 
+            // mongodb with username / password authentication
             //mongoDBToolkit.BackupDatabaseWithAuthentication(databaseName, localDatabasePath);
             //mongoDBToolkit.RestoreDatabaseWithAuthentication(localDatabasePath);
         }

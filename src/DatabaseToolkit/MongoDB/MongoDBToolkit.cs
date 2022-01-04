@@ -5,9 +5,32 @@ namespace DatabaseToolkit
 {
     public interface IMongoDBToolkit
     {
+        /// <summary>
+        /// Backup a MongoDB database using mongodump compressed using gzip.
+        /// </summary>
+        /// <param name="databaseName">The name of the database on the server.</param>
+        /// <param name="localDatabasePath">The local path to the .gz file used when saving the backup.</param>
         void BackupDatabase(string databaseName, string localDatabasePath);
+        /// <summary>
+        /// Restore a MongoDB database using mongorestore with a compressed gzip database backup.
+        /// </summary>
+        /// <param name="localDatabasePath">The local path to the .gz file we're restoring.</param>
         void RestoreDatabase(string localDatabasePath);
+        /// <summary>
+        /// Backup a MongoDB database using mongodump and username/password authentication compressed using gzip. Make sure the following appsettings.json properties
+        /// <see cref="ApplicationOptions.MongoDBUser"/>, <see cref="ApplicationOptions.MongoDBPassword"/>,
+        /// <see cref="ApplicationOptions.MongoDBAuthenticationDatabase"/> are set.
+        /// </summary>
+        /// <param name="databaseName">The name of the database on the server.</param>
+        /// <param name="localDatabasePath">The local path to the .gz file used when saving the backup.</param>
         void BackupDatabaseWithAuthentication(string databaseName, string localDatabasePath);
+        /// <summary>
+        /// Restore a MongoDB database using mongorestore and username/password authentication compressed using gzip. Make sure the following appsettings.json properties
+        /// <see cref="ApplicationOptions.MongoDBUser"/>, <see cref="ApplicationOptions.MongoDBPassword"/>,
+        /// <see cref="ApplicationOptions.MongoDBAuthenticationDatabase"/> are set.
+        /// </summary>
+        /// <param name="databaseName">The name of the database on the server.</param>
+        /// <param name="localDatabasePath">The local path to the .gz file we're restoring.</param>
         void RestoreDatabaseWithAuthentication(string localDatabasePath);
     }
 
@@ -20,6 +43,11 @@ namespace DatabaseToolkit
             this.options = options;
         }
 
+        /// <summary>
+        /// Backup a MongoDB database using mongodump compressed using gzip.
+        /// </summary>
+        /// <param name="databaseName">The name of the database on the server.</param>
+        /// <param name="localDatabasePath">The local path to the .gz file used when saving the backup.</param>
         public void BackupDatabase(string databaseName, string localDatabasePath)
         {
             var process = new Process();
@@ -35,6 +63,13 @@ namespace DatabaseToolkit
             process.Close();
         }
 
+        /// <summary>
+        /// Backup a MongoDB database using mongodump and username/password authentication compressed using gzip. Make sure the following appsettings.json properties
+        /// <see cref="ApplicationOptions.MongoDBUser"/>, <see cref="ApplicationOptions.MongoDBPassword"/>,
+        /// <see cref="ApplicationOptions.MongoDBAuthenticationDatabase"/> are set.
+        /// </summary>
+        /// <param name="databaseName">The name of the database on the server.</param>
+        /// <param name="localDatabasePath">The local path to the .gz file used when saving the backup.</param>
         public void BackupDatabaseWithAuthentication(string databaseName, string localDatabasePath)
         {
             var process = new Process();
@@ -52,6 +87,10 @@ namespace DatabaseToolkit
             process.Close();
         }
 
+        /// <summary>
+        /// Restore a MongoDB database using mongorestore with a compressed gzip database backup.
+        /// </summary>
+        /// <param name="localDatabasePath">The local path to the .gz file we're restoring.</param>
         public void RestoreDatabase(string localDatabasePath)
         {
             var process = new Process();
@@ -67,6 +106,13 @@ namespace DatabaseToolkit
             process.Close();
         }
 
+        /// <summary>
+        /// Restore a MongoDB database using mongorestore and username/password authentication compressed using gzip. Make sure the following appsettings.json properties
+        /// <see cref="ApplicationOptions.MongoDBUser"/>, <see cref="ApplicationOptions.MongoDBPassword"/>,
+        /// <see cref="ApplicationOptions.MongoDBAuthenticationDatabase"/> are set.
+        /// </summary>
+        /// <param name="databaseName">The name of the database on the server.</param>
+        /// <param name="localDatabasePath">The local path to the .gz file we're restoring.</param>
         public void RestoreDatabaseWithAuthentication(string localDatabasePath)
         {
             var process = new Process();
