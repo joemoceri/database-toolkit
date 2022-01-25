@@ -46,7 +46,15 @@ namespace DatabaseToolkit
         {
             var process = new Process();
             var startInfo = new ProcessStartInfo();
-            startInfo.FileName = Path.Combine("MongoDB", "mongodb-backup.bat");
+
+            var fileName = "mongodb-backup.bat";
+
+            if (withAuthentication)
+            {
+                fileName = "mongodb-backup-with-auth.bat";
+            }
+
+            startInfo.FileName = Path.Combine("MongoDB", fileName);
 
             var arguments = $@"{databaseName} ""{localDatabasePath}""";
 
@@ -81,7 +89,14 @@ namespace DatabaseToolkit
         {
             var process = new Process();
             var startInfo = new ProcessStartInfo();
-            startInfo.FileName = Path.Combine("MongoDB", "mongodb-restore-with-auth.bat");
+            var fileName = "mongodb-restore.bat";
+
+            if (withAuthentication)
+            {
+                fileName = "mongodb-restore-with-auth.bat";
+            }
+
+            startInfo.FileName = Path.Combine("MongoDB", fileName);
 
             arguments = $@"""{localDatabasePath}""";
             
