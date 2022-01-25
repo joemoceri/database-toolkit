@@ -69,10 +69,12 @@ namespace DatabaseToolkit
             startInfo.UseShellExecute = false;
             process.StartInfo = startInfo;
             process.Start();
+
             if (withAuthentication)
             {
                 process.StandardInput.WriteLine(options.Value.MongoDBPassword);
             }
+
             process.WaitForExit();
             process.Close();
         }
