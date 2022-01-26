@@ -10,8 +10,19 @@ namespace DatabaseToolkit
 {
     public interface ISQLiteToolkit
     {
-        void RestoreDatabase(string databaseName, string localDatabasePath);
+        /// <summary>
+        /// Backup a sqlite database using sqlite3 and the .backup dot command.
+        /// </summary>
+        /// <param name="databaseName">This is the database you connect to including extension.</param>
+        /// <param name="localDatabasePath">The path where the backup is stored including extension.</param>
         void BackupDatabase(string databaseName, string localDatabasePath);
+
+        /// <summary>
+        /// Restore a sqlite database using sqlite3 and the .restore dot command.
+        /// </summary>
+        /// <param name="databaseName">This is the database you connect to including extension.</param>
+        /// <param name="localDatabasePath">The path where the backup is stored including extension.</param>
+        void RestoreDatabase(string databaseName, string localDatabasePath);
     }
     internal class SQLiteToolkit : ISQLiteToolkit
     {
@@ -22,12 +33,18 @@ namespace DatabaseToolkit
             this.options = options;
         }
 
+        /// <summary>
+        /// Backup a sqlite database using sqlite3 and the .backup dot command.
+        /// </summary>
+        /// <param name="databaseName">This is the database you connect to including extension.</param>
+        /// <param name="localDatabasePath">The path where the backup is stored including extension.</param>
         public void BackupDatabase(string databaseName, string localDatabasePath)
         {
             var process = new Process();
             var startInfo = new ProcessStartInfo();
             startInfo.FileName = Path.Combine("SQLite", "sqlite-backup.bat");
 
+            // sqlite needs to have two slashes instead of one for the path it uses inside sqlite3
             startInfo.Arguments = $@"""{databaseName}"" ""{localDatabasePath.Replace(@"\", @"\\")}""";
             startInfo.CreateNoWindow = true;
             startInfo.UseShellExecute = false;
@@ -37,12 +54,18 @@ namespace DatabaseToolkit
             process.Close();
         }
 
+        /// <summary>
+        /// Restore a sqlite database using sqlite3 and the .restore dot command.
+        /// </summary>
+        /// <param name="databaseName">This is the database you connect to including extension.</param>
+        /// <param name="localDatabasePath">The path where the backup is stored including extension.</param>
         public void RestoreDatabase(string databaseName, string localDatabasePath)
         {
             var process = new Process();
             var startInfo = new ProcessStartInfo();
             startInfo.FileName = Path.Combine("SQLite", "sqlite-restore.bat");
 
+            // sqlite needs to have two slashes instead of one for the path it uses inside sqlite3
             startInfo.Arguments = $@"""{databaseName}"" ""{localDatabasePath.Replace(@"\", @"\\")}""";
             startInfo.CreateNoWindow = true;
             startInfo.UseShellExecute = false;
