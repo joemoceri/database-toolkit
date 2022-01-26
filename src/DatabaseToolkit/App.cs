@@ -69,14 +69,14 @@ namespace DatabaseToolkit
 
             // sqlite
             // this is the database you connect to
-            var databaseName = @"C:\path\to\your\database\database.db";
+            // var databaseName = @"C:\path\to\your\database\database.db";
 
             // this is where it's saved when backing up and restored from when restoring
-            var localDatabasePath = @"C:\database.backup.db";
+            // var localDatabasePath = @"C:\database.backup.db";
 
             // sqlite
             //sqliteToolkit.BackupDatabase(databaseName, localDatabasePath);
-            sqliteToolkit.RestoreDatabase(databaseName, localDatabasePath);
+            //sqliteToolkit.RestoreDatabase(databaseName, localDatabasePath);
 
         }
     }
