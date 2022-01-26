@@ -1,10 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DatabaseToolkit
 {
@@ -24,6 +19,7 @@ namespace DatabaseToolkit
         /// <param name="localDatabasePath">The path where the backup is stored including extension.</param>
         void RestoreDatabase(string databaseName, string localDatabasePath);
     }
+
     internal class SQLiteToolkit : ISQLiteToolkit
     {
         public IOptions<ApplicationOptions> options;
