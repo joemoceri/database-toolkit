@@ -100,7 +100,7 @@ namespace DatabaseToolkit
 
             startInfo.FileName = Path.Combine("MongoDB", fileName);
 
-            arguments = $@"""{localDatabasePath}""";
+            var arguments = $@"""{localDatabasePath}""";
             
             if (withAuthentication)
             {
