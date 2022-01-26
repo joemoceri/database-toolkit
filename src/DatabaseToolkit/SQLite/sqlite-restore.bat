@@ -1,0 +1,1 @@
+sqlite3 %1 ".restore %2"

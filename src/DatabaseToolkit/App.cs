@@ -9,14 +9,21 @@ namespace DatabaseToolkit
         private readonly IMySQLToolkit mySqlToolkit;
         private readonly IPostgreSQLToolkit postgreSqlToolkit;
         private readonly IMongoDBToolkit mongoDBToolkit;
+        private readonly ISQLiteToolkit sqliteToolkit;
 
-        public App(IOptions<ApplicationOptions> options, ISQLServerToolkit sqlServerToolkit, IMySQLToolkit mySqlToolkit, IPostgreSQLToolkit postgreSqlToolkit, IMongoDBToolkit mongoDBToolkit)
+        public App(IOptions<ApplicationOptions> options, 
+            ISQLServerToolkit sqlServerToolkit, 
+            IMySQLToolkit mySqlToolkit, 
+            IPostgreSQLToolkit postgreSqlToolkit, 
+            IMongoDBToolkit mongoDBToolkit,
+            ISQLiteToolkit sqliteToolkit)
         {
             this.options = options;
             this.sqlServerToolkit = sqlServerToolkit;
             this.mySqlToolkit = mySqlToolkit;
             this.postgreSqlToolkit = postgreSqlToolkit;
             this.mongoDBToolkit = mongoDBToolkit;
+            this.sqliteToolkit = sqliteToolkit;
         }
 
         public void Run()
@@ -59,6 +66,18 @@ namespace DatabaseToolkit
             // mongodb with username / password authentication
             //mongoDBToolkit.BackupDatabase(databaseName, localDatabasePath, true);
             //mongoDBToolkit.RestoreDatabase(localDatabasePath, true);
+
+            // sqlite
+            // this is the database you connect to
+            var databaseName = @"C:\path\to\your\database\database.db";
+
+            // this is where it's saved when backing up and restored from when restoring
+            var localDatabasePath = @"C:\database.backup.db";
+
+            // sqlite
+            //sqliteToolkit.BackupDatabase(databaseName, localDatabasePath);
+            sqliteToolkit.RestoreDatabase(databaseName, localDatabasePath);
+
         }
     }
 }

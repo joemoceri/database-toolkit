@@ -19,6 +19,8 @@
     <None Remove="MySQL\mysql-backup.bat" />
     <None Remove="postgresql-backup.bat" />
     <None Remove="postgresql-restore.bat" />
+    <None Remove="SQLite\sqlite-backup.bat" />
+    <None Remove="SQLite\sqlite-restore.bat" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +49,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="MySQL\mysql-restore.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SQLite\sqlite-backup.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SQLite\sqlite-restore.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
