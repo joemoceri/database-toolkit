@@ -36,6 +36,7 @@ namespace DatabaseToolkit
             services.AddTransient<IMySQLToolkit, MySQLToolkit>();
             services.AddTransient<IPostgreSQLToolkit, PostgreSQLToolkit>();
             services.AddTransient<IMongoDBToolkit, MongoDBToolkit>();
+            services.AddTransient<ISQLiteToolkit, SQLiteToolkit>();
         }
     }
 }
