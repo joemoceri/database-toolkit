@@ -104,7 +104,7 @@ namespace DatabaseToolkit
                     {
                         // set database to single user
                         var sql = @"
-                            declare @database varchar(max) = '[' + @databaseName + ']'
+                            declare @database varchar(max) = quotename(@databaseName)
                             EXEC('ALTER DATABASE ' + @database + ' SET SINGLE_USER WITH ROLLBACK IMMEDIATE')";
                         using (var command = new SqlCommand(sql, connection))
                         {
@@ -142,7 +142,7 @@ namespace DatabaseToolkit
 
                         // set database to multi user
                         sql = @"
-                            declare @database varchar(max) = '[' + @databaseName + ']'
+                            declare @database varchar(max) = quotename(@databaseName)
                             EXEC('ALTER DATABASE ' + @database + ' SET MULTI_USER')";
                         using (var command = new SqlCommand(sql, connection))
                         {
